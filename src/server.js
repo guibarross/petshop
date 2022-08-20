@@ -17,6 +17,11 @@ server.engine('mustache', mustache())
 server.use(express.static(path.join(__dirname, '../public')))
 // usando arota importada
 server.use(mainRoutes)
+
+//criando a pagina 404
+server.use((req,res) =>{
+    res.render('pages/404')
+})
 //escutando a porta que colocamos no .env
 server.listen(process.env.PORT)
 
